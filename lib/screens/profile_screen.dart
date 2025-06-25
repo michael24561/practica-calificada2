@@ -78,9 +78,8 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
         ),
         body: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch, // Ocupa todo el ancho
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // Sección Superior
               Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
@@ -107,7 +106,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
-                      textAlign: TextAlign.center, // Texto centrado
+                      textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 8),
                     const Text(
@@ -137,7 +136,6 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                 ),
               ),
               
-              // Sección de Suscripción
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Card(
@@ -178,7 +176,6 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                 ),
               ),
               
-              // Pestañas Inferiores con animación
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Row(
@@ -238,7 +235,6 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                 ),
               ),
               
-              // Lista de Películas
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(
