@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
-  
+
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
@@ -43,7 +43,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: _darkMode 
+      theme: _darkMode
           ? ThemeData.dark().copyWith(
               primaryColor: Colors.blueGrey,
               cardTheme: CardTheme(
@@ -96,7 +96,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                   children: [
                     const CircleAvatar(
                       radius: 50,
-                      backgroundImage: AssetImage('assets/profile_placeholder.jpeg'),
+                      backgroundImage: AssetImage('assets/nolan.jpeg'),
                     ),
                     const SizedBox(height: 16),
                     const Text(
@@ -135,7 +135,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                   ],
                 ),
               ),
-              
+
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Card(
@@ -143,7 +143,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch, // Ocupa todo el ancho
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         const Text(
                           '1 Year of Unlimited Moviez',
@@ -175,7 +175,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                   ),
                 ),
               ),
-              
+
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Row(
@@ -192,15 +192,15 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                       child: TextButton(
                         onPressed: () => _onTabPressed(0),
                         style: TextButton.styleFrom(
-                          foregroundColor: _selectedTabIndex == 0 
-                              ? Theme.of(context).primaryColor 
+                          foregroundColor: _selectedTabIndex == 0
+                              ? Theme.of(context).primaryColor
                               : Colors.grey,
                         ),
                         child: Text(
                           'Watch History',
                           style: TextStyle(
-                            fontWeight: _selectedTabIndex == 0 
-                                ? FontWeight.bold 
+                            fontWeight: _selectedTabIndex == 0
+                                ? FontWeight.bold
                                 : FontWeight.normal,
                           ),
                         ),
@@ -217,15 +217,15 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                       child: TextButton(
                         onPressed: () => _onTabPressed(1),
                         style: TextButton.styleFrom(
-                          foregroundColor: _selectedTabIndex == 1 
-                              ? Theme.of(context).primaryColor 
+                          foregroundColor: _selectedTabIndex == 1
+                              ? Theme.of(context).primaryColor
                               : Colors.grey,
                         ),
                         child: Text(
                           'Downloaded',
                           style: TextStyle(
-                            fontWeight: _selectedTabIndex == 1 
-                                ? FontWeight.bold 
+                            fontWeight: _selectedTabIndex == 1
+                                ? FontWeight.bold
                                 : FontWeight.normal,
                           ),
                         ),
@@ -234,15 +234,15 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                   ],
                 ),
               ),
-              
+
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    _buildMovieItem('VENOM', 'HERE ARE YOURS ME?'),
-                    _buildMovieItem('INTERSTELLAR', 'MURPH!!!'),
-                    _buildMovieItem('INCEPTION', 'DON\'T THINK ABOUT ELEPHANTS'),
+                    _buildMovieItem('The Dark Knight', 'Why so serious?', 'assets/dark_knight.jpg'),
+                    _buildMovieItem('Tenet', 'Time runs out.', 'assets/tenet.jpg'),
+                    _buildMovieItem('Oppenheimer', 'The man who moved the earth.', 'assets/oppenheimer.jpg'),
                   ],
                 ),
               ),
@@ -253,14 +253,26 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
       ),
     );
   }
-  
-  Widget _buildMovieItem(String title, String description) {
+
+  Widget _buildMovieItem(String title, String description, String imagePath) {
     return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       margin: const EdgeInsets.only(bottom: 16),
+      elevation: 3,
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Row(
           children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.asset(
+                imagePath,
+                width: 60, // Tamaño reducido
+                height: 60,
+                fit: BoxFit.cover,
+              ),
+            ),
+            const SizedBox(width: 12),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -269,21 +281,19 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                     title,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 18,
+                      fontSize: 16,
                     ),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     description,
-                    style: TextStyle(
-                      color: Colors.grey.shade600,
-                    ),
+                    style: TextStyle(color: Colors.grey.shade600),
                   ),
                 ],
               ),
             ),
             IconButton(
-              icon: const Icon(Icons.play_arrow, size: 32),
+              icon: const Icon(Icons.play_circle_fill, size: 36, color: Colors.blueAccent),
               onPressed: () {},
             ),
           ],

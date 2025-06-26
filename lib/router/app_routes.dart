@@ -16,7 +16,7 @@ class AppRoutes{
     MenuOption(route: 'avatar', icon: Icons.verified_user, name: 'AvatarScreen', screen: AvatarScreen()),
     MenuOption(route: 'animated', icon: Icons.animation, name: 'AnimatedScreen', screen: AnimatedScreen()),
     MenuOption(route: 'inputs', icon: Icons.text_decrease, name: 'InputsScreen', screen: InputsScreen()),
-    MenuOption(route: 'profile', icon: Icons.verified_user_outlined, name: 'ProfileScreen', screen: ProfileScreen()),
+    MenuOption(route: 'profile', icon: Icons.text_fields, name: 'ProfileScreen', screen: ProfileScreen()),
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes(){
